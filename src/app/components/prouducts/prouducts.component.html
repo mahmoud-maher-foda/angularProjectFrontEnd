@@ -1,0 +1,46 @@
+<div class="container p-5 mt-3 bg-body-secondary text-center">
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">product Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of products let x=index">
+            <th scope="row">{{item.id}}</th>
+            <td>{{item.productName}}</td>
+            <td>{{item.price|currency}}</td>
+            <td>{{item.quantity}}</td>
+            <td>
+                <i class="fs-4 mx-1 text-warning bi bi-pencil-square" 
+                [routerLink]="['/products',item.id,'edit']"
+                ></i>
+                <i class="fs-4 mx-1 text-info bi bi-eye-fill"
+                [routerLink]="['/products',item.id]"
+                ></i>
+                <i (click)="deleteProductHandler(item.id)" class="fs-4 mx-1 text-danger bi bi-trash3"
+                ></i>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+</div>
+<!-- <div class=" container">
+  <section *ngFor="let x of arr">
+    <div class="row justify-content-between " style="padding: 50px;">
+    <div *ngFor="let x of arr" class="card" style="width: 18rem;">
+        <img src="https://images.pexels.com/photos/923192/pexels-photo-923192.jpeg?auto=compress&cs=tinysrgb&w=300" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+   -->

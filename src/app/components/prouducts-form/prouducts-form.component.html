@@ -1,0 +1,35 @@
+<div class="container bg-body-secondary mt-5 p-5">
+    <form [formGroup]="ProuductsForm" (submit)="formOperation()">
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Product name</label>
+          <input formControlName="productName" type="text" class="form-control"
+           id="exampleInputEmail1" placeholder="Enter product name" aria-describedby="emailHelp">
+          <ng-container *ngIf="getProductName.touched">
+          <div *ngIf="getProductName.hasError('required')" id="emailHelp" 
+          class="form-text text-danger">Product Name is required</div>
+          <div *ngIf="getProductName.hasError('minlength')" id="emailHelp" 
+          class="form-text text-danger">Product Name min Length is 3</div>
+          </ng-container>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPrice" class="form-label">Price</label>
+          <input formControlName="price" type="number" class="form-control" id="exampleInputPrice" placeholder="Enter Product price">
+          <ng-container *ngIf="getPrice.touched">
+          <div *ngIf="getPrice.hasError('required')" id="PriceHelp" 
+          class="form-text text-danger">Product Price is required</div>
+          <div *ngIf="getPrice.hasError('min')" id="PriceHelp" 
+          class="form-text text-danger">Product Price minumum is 30</div>
+            </ng-container>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputQuantity" class="form-label">Quantity</label>
+          <input formControlName="quantity" type="number" class="form-control" id="exampleInputQuantity" placeholder="Enter Product price">
+          <ng-container *ngIf="getQuantity.touched">
+           <div *ngIf="getQuantity.hasError('required')" id="QuantityHelp" 
+           class="form-text text-danger">Quantity is required</div>
+          </ng-container>
+        <div >{{ProuductsForm.value|json}}</div>
+        </div>
+        <button type="submit" class="btn btn-primary" >{{productID==0?'Add product':'Edit product'}}</button>
+      </form>
+</div>
